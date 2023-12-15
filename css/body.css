@@ -1,0 +1,120 @@
+.body-wrap {
+    display: flex;
+    overflow: hidden;
+    min-height: 100vh;
+    flex-direction: column;
+
+    main {
+        gap: 2rem;
+        display: flex;
+        flex: 1 0 auto;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        .head {
+            text-align: center;
+            margin-bottom: 50px;
+
+            h1, p, span {
+                margin: 0;
+            }
+
+            h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                font-family: "PixelifySans";
+            }
+
+            p {
+                margin-bottom: .75rem;
+            }
+        }
+
+        #playVideo-btn {
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            margin-bottom: 3rem;
+            border-radius: .25rem;
+            background-color: #333;
+            font-family: "PixelifySans";
+            box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+        
+            &:hover {
+                background-color: #444;
+            }
+        
+            &.disabled {
+                cursor: default;
+                background-color: #bbb;
+            }
+        }
+
+        .select-container {
+            gap: 2rem;
+            display: flex;
+            flex-direction: row;
+
+            button {
+                border: none;
+                cursor: pointer;
+                background: transparent;
+                position: relative;
+                padding: 0;
+
+                video {
+                    width: 20rem;
+                    height: auto;
+                    object-fit: fill;
+                    aspect-ratio: 16/9;
+                    border-radius: .25rem;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+                }
+
+                &::after {
+                    top: 0;
+                    left: 0;
+                    content: "";
+                    width: 100%;
+                    height: 98.5%;
+                    transition: .5s;
+                    position: absolute;
+                    border-radius: .25rem;
+                    background: rgba(0, 0, 0, 0.5);
+                }
+
+                &:hover::after {
+                    background: transparent;
+                }
+            }
+        }
+    }
+}
+
+/* Phone Portrait */
+@media only screen and (max-device-width: 809px) and (orientation: portrait) {
+    .body-wrap main {
+        .head {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                width: 90%;
+                margin: auto;
+            }
+        }
+
+        .select-container {
+            flex-direction: column;
+
+            button video {
+                margin: auto;
+                max-width: 90%;
+            }
+        }
+    }
+}
