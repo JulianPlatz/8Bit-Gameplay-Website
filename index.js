@@ -1,18 +1,20 @@
 const marioButton = document.getElementById('marioButton');
 const sonicButton = document.getElementById('sonicButton');
 
+const head = document.getElementById('head');
 const selectGameText = document.getElementById('selectGameText');
 
 const marioVideo = document.getElementById('marioVideo');
 const sonicVideo = document.getElementById('sonicVideo');
 
 function hideButton(button) {
+    head.style.opacity = "0";
     button.style.opacity = "0";
     button.style.transition = ".5s";
     button.style.cursor = "default";
+    selectGameText.style.opacity = "0";
     button.classList.add('noPseudoAfter');
     button.classList.add('noPseudoBefore');
-    selectGameText.style.opacity = "0";
 
     setTimeout(function() {
         button.style.display = "none";
