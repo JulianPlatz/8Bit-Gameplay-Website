@@ -35,9 +35,11 @@
             border: none;
             color: #fff;
             cursor: pointer;
+            transition: .25s;
             font-size: 1.2rem;
             padding: 1rem 2rem;
             margin-bottom: 3rem;
+            pointer-events: none;
             border-radius: .25rem;
             background-color: #333;
             font-family: "PixelifySans";
@@ -65,7 +67,7 @@
                 position: relative;
                 padding: 0;
 
-                video {
+                img {
                     width: 20rem;
                     height: auto;
                     object-fit: fill;
@@ -83,13 +85,51 @@
                     transition: .5s;
                     position: absolute;
                     border-radius: .25rem;
-                    background: rgba(0, 0, 0, 0.5);
+                    background: rgba(0, 0, 0, .5);
                 }
 
                 &:hover::after {
-                    background: transparent;
+                    background: rgb(0,0,0,.25);
+                }
+
+                &::before {
+                    top: 50%;
+                    left: 50%;
+                    color: #fff;
+                    opacity: 0;
+                    z-index: 10;
+                    transition: .5s;
+                    font-size: 1.25rem;
+                    position: absolute;
+                    content: "Select Video";
+                    font-family: "PixelifySans";
+                    transform: translate(-50%, -50%);
+                }
+
+                &:hover::before {
+                    opacity: 1;
+                }
+
+                &.noPseudoBefore:hover::before {
+                    content: none;
+                }
+
+                &.noPseudoAfter::after {
+                    opacity: 1;
+                    background: rgba(0, 0, 0, 0);
                 }
             }
+        }
+
+        video {
+            width: 50rem;
+            height: auto;
+            object-fit: fill;
+            position: absolute;
+            display: none;
+            aspect-ratio: 16/9;
+            border-radius: .25rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .5);
         }
     }
 }
@@ -110,11 +150,16 @@
 
         .select-container {
             flex-direction: column;
+            max-width: 80%;
 
-            button video {
+            button img {
                 margin: auto;
-                max-width: 90%;
+                width: 100%;
             }
+        }
+
+        video {
+            max-width: 80%;
         }
     }
 }

@@ -15,14 +15,17 @@
                     <span><small><i>Use sound for better experience.</i></small></span>
                 </div>
 
-                <button id="playVideo-btn" class="disabled">Play Video</button>
+                <button onclick="playVideo()" id="playVideo-btn" class="disabled">Play Video</button>
 
-                <span><small><i>Select Game!</i></small></span>
+                <span id="selectGameText"><small><i>Select Game!</i></small></span>
                 
                 <div class="select-container">
-                    <button><video src="videos/mario.mp4" class="mario-container" autoplay muted loop></video></button>
-                    <button><video src="videos/sonic.mp4" class="mario-container" autoplay muted loop></video></button>               
+                    <button onclick="clickMario()" id="marioButton"><img src="images/mario_frame.jpg"></button>
+                    <button onclick="clickSonic()" id="sonicButton"><img src="images/sonic_frame.jpg"></button>             
                 </div>
+
+                <video src="videos/mario.mp4" id="marioVideo"></video>
+                <video src="videos/sonic.mp4" id="sonicVideo"></video>
             </main>
         </div>
 
