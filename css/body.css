@@ -37,11 +37,11 @@
             flex-direction: row;
 
             button {
+                padding: 0;
                 border: none;
                 cursor: pointer;
-                background: transparent;
                 position: relative;
-                padding: 0;
+                background: transparent;
 
                 img {
                     width: 20rem;
@@ -100,10 +100,10 @@
         video {
             width: 50rem;
             height: auto;
-            object-fit: fill;
-            position: absolute;
             display: none;
+            object-fit: fill;
             aspect-ratio: 16/9;
+            position: absolute;
             border-radius: .25rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, .5);
         }
@@ -125,12 +125,12 @@
         }
 
         .select-container {
-            flex-direction: column;
             max-width: 80%;
+            flex-direction: column;
 
             button img {
-                margin: auto;
                 width: 100%;
+                margin: auto;
             }
         }
 
